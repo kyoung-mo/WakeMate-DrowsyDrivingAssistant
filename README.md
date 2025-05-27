@@ -1,2 +1,80 @@
-# WakeMate-DrowsyDrivingAssistant
-An interactive in-vehicle care system that detects driver drowsiness using on-device AI and sensor data, then engages the driver in voice-based conversation using ChatGPT API to help restore alertness. Developed for the 23rd Embedded Software Contest (Automotive/Mobility category).
+# 🚗 WakeMate: HyBud - 인터랙티브 운전자 케어 시스템
+
+## 🧠 프로젝트 개요
+
+**HyBud**는 "Hyundai"와 "Buddy"의 합성어로, 졸음운전 중인 운전자에게 친구처럼 말을 걸어 깨워주는 **인터랙티브 AI 운전 보조 시스템**입니다.
+
+- 운전자의 졸음 상태를 **온디바이스 AI와 센서 데이터**를 기반으로 실시간 감지  
+- **ChatGPT API**를 통해 자연스러운 대화를 유도하여 주의력 회복  
+- **웨어러블 기기** 및 차량 내외부 환경 정보(CO₂, 온습도, 카메라 등)를 통합하여 **맞춤형 운전 경험 제공**
+
+---
+
+## 🎯 개발 목표
+
+- 졸음운전을 실시간으로 감지하고, **음성 기반 대화 시스템**을 통해 운전자의 집중력 회복 유도
+- **STT → GPT 응답 → TTS**의 음성 파이프라인 구축
+- 사고 예방 및 운전자 안전 확보를 위한 **능동적 운전 보조 시스템 구현**
+
+---
+
+## 🔎 개발 배경
+
+- 졸음운전 사고는 **음주운전보다 높은 치사율**을 보임  
+- 경찰청 통계(2019~2023): 졸음운전 사고 10,790건, 하루 평균 5.9건, 사망자 317명  
+- 졸음운전의 위험성과 심각성에 따라 **실시간 감지와 대응 시스템**의 필요성이 높아짐  
+- ChatGPT API와 음성 인터페이스를 활용한 **맞춤형 대응 시스템 구현**
+
+---
+
+## ⚙️ 시스템 구성
+
+```
+[웨어러블 디바이스 / 카메라] 
+       ↓
+[라즈베리파이 판단 모듈] 
+       ↓
+[ChatGPT API ↔ 음성 입출력]
+       ↓
+[스피커 및 사용자 피드백]
+```
+
+- **WD (Wearable Device)**: 수면 시간, 심박수 등 데이터 제공  
+- **Built-in Camera**: 얼굴 인식 기반 졸음 여부 판단 (EAR 알고리즘, dlib, opencv or AI 모델 + Hailo 가속기 사용)  
+- **라즈베리파이**: 센서 데이터 통합 → 졸음 판단 → ChatGPT API 호출 → TTS 변환 후 출력  
+- **STT**: Google STT API 또는 Whisper 로컬 모델 사용
+
+---
+
+## 🛠️ 사용 기술 및 장비
+
+### ▪ 소프트웨어 (SW)
+
+- 음성 인식 모델: Google STT API, Whisper (Transformer 기반)  
+- 자연어 처리: OpenAI ChatGPT API  
+- 음성 합성: gTTS or pyttsx3  
+- Python 라이브러리: SpeechRecognition, dlib, opencv 등  
+- TTS/STT 최적화: 캐시 활용, 텍스트 임베딩 적용 예정
+
+### ▪ 하드웨어 (HW)
+
+- 라즈베리파이 5 + 카메라 모듈 3  
+- CO₂ 센서, 온습도 센서, 마이크, 스피커  
+- Coral EdgeTPU (선택사항, TFLite 모델 최적화 시)  
+- Hailo-8 (선택사항, 실시간 추론 가속)
+
+---
+
+## 🚧 개발 전략 및 해결 방안
+
+- **1차 STT**는 Google API로 구현하고, 정확도/속도 문제 발생 시 **로컬 모델(Whisper)**로 전환  
+- ChatGPT API의 **응답 지연/비용** 문제는 캐싱과 임베딩 검색으로 최적화  
+- Hailo/Coral EdgeTPU와 같은 하드웨어 가속기로 모델 추론 속도 개선
+
+---
+
+## 📌 기대 효과
+
+- 수면 시간, 감정 상태, 운전 패턴 등 데이터를 기반으로 **개인 맞춤형 솔루션 제공**  
+- 교통사고 예방, 운전자 건강 증진, 웨어러블/자동차 연동 기술 확장 가능  
+- **실제 차량 적용** 및 **스마트 모빌리티 서비스로 발전 가능성** 확보
