@@ -1,4 +1,4 @@
-link : https://github.com/8ehemoth/Embeded_software/edit/main/chat_gpt_api/README.md
+Collaborator_link : https://github.com/8ehemoth/Embeded_software/edit/main/chat_gpt_api/README.md
 ---
 # 🚗 WakeMate: HyBud - Interactive Driver Care System
 
