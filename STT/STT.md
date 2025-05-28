@@ -1,4 +1,5 @@
 google api link : https://console.cloud.google.com/welcome/new?hl=ko&inv=1&invt=Abym0A&project=marine-tensor-461210-f9
+
 whisper link : https://huggingface.co/spaces/aadnk/faster-whisper-webui
 ---
 # 🧠 STT 관련 정리 문서
