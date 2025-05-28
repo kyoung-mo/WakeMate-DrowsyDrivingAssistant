@@ -1,5 +1,10 @@
 # 🚗 WakeMate: HyBud - 인터랙티브 운전자 케어 시스템
 
+![image](https://github.com/user-attachments/assets/70f237d0-b632-4dd4-a22b-001ca1f07a7f)
+
+![image](https://github.com/user-attachments/assets/d1f9c22b-45ca-476a-8214-f7e4f0ad17e5)
+
+
 ## 🧠 프로젝트 개요
 
 **HyBud**는 "Hyundai"와 "Buddy"의 합성어로, 졸음운전 중인 운전자에게 친구처럼 말을 걸어 깨워주는 **인터랙티브 AI 운전 보조 시스템**입니다.
