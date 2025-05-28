@@ -1,3 +1,5 @@
+link : https://console.cloud.google.com/welcome/new?hl=ko&inv=1&invt=Abym0A&project=marine-tensor-461210-f9
+---
 # 🧠 STT 관련 정리 문서
 
 ## 1. 🎯 프로젝트 배경
